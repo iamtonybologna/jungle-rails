@@ -1,9 +1,7 @@
-<% @email = current_user.email %>
-<% quantity = details['quantity'].to_i %>
+<% quantity = line_item.quantity.to_i %>
 
-<% if product = Product.find_by(id: product_id) %>
+<% if product = line_item.product %>
   <% item_total = product.price * quantity %>
-  <% @cart_total += item_total %>
 
   <tr>
     <td>
@@ -24,4 +22,5 @@
       <%= item_total %>
     </td>
   </tr>
+
 <% end %>
