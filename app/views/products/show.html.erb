@@ -25,6 +25,63 @@
         </dl>
       </div>
     </div>
+    <% if current_user %>
+      <%= form_for [@product, @review] do |form| %>
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <br>
+        <div class="form-group">
+          <%= form.label :rating %>
+          <%= form.select :rating, [[5], [4], [3], [2], [1]], class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :comment %>
+          <%= form.text_area :comment, class: 'form-control' %>
+        </div>
+        <%= form.submit 'Post Review', class: 'btn btn-primary' %>
+        <br>
+      <% end %>
+    <% end %>
+
+    <% if @reviews != [] %>
+      <div class="row">
+        <br>
+        <h3>Reviews</h3>
+        <table class="table">
+          <thead>
+            <th>User</th>
+            <th>Rating</th>
+            <th>Comment</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @reviews.each do |review| %>
+              <tr>
+                <dd>
+                  <td><%= review.user_id %></td>
+                  <td><%= review.rating %></td>
+                  <td><%= review.comment %></td>
+                  <% if current_user %>
+                    <td>
+                      <%= link_to 'Destroy', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>
+                  <% end %>
+                </dd>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
 
   </article>
 
