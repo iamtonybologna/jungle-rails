@@ -5,14 +5,15 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @user = User.find_by(email: params[:stripeEmail])
     charge = perform_stripe_charge
     order  = create_order(charge)
+    @line_items = LineItem.where(order_id: order.id)
 
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
-      UserMailer.order_email(@user).deliver_now
+      OrderMailer.order_email(@user, order, @line_items).deliver_now
     else
       redirect_to cart_path, error: order.errors.full_messages.first
     end
