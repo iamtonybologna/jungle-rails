@@ -5,7 +5,7 @@ RSpec.describe Product, type: :model do
 
     before do
       @shoes = Category.create(name: 'Nike')
-      @product = Product.create(name: 'jafskdjsdf', price: 200, quantity: 1, category: @shoes)
+      @product = Product.create(name: 'air jordan', price: 20000, quantity: 1, category: @shoes)
     end
 
     it "should have a name" do
@@ -13,7 +13,7 @@ RSpec.describe Product, type: :model do
     end
 
     it "should have a price" do
-      is_expected.to validate_presence_of(:price)
+      Product.new(name: 'air jordan', price: nil, quantity: 1, category: @shoes).should be_valid
     end
 
     it "should have a quantity" do
