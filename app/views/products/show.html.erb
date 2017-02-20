@@ -70,7 +70,6 @@
                   <td><%= review.name %></td>
                   <td><%= review.rating %></td>
                   <td><%= review.comment %></td>
-                  <!-- need to check if current user is same user as comment owner -->
                   <% if current_user == review.user %>
                     <td>
                       <%= link_to 'Delete', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %>
