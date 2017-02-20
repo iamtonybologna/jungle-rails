@@ -1,7 +1,8 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2. Features that were added to the skeleton include sold out badges, admin page for modification of categories, user authentication, order details, email order receipts, and product reviews.
 
+https://young-savannah-91290.herokuapp.com/
 
 ## Setup
 
