@@ -19,7 +19,6 @@ describe User, type: :model do
         password: 'secret',
         password_confirmation: 'secret'
       )
-      byebug
       User.new(
         name: 'tony',
         email: 'anthony.langford@gmail.com',
