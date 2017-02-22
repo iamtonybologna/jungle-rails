@@ -132,25 +132,4 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-User.create!({
-  name: 'Anthony',
-  email: 'anthony.langford@gmail.com',
-  password_digest: 'secret'
-  })
-
-Review.create!({
-  user_id: 1,
-  product_id: 12,
-  rating: 1,
-  comment: 'this is a shit bookshelf'
-  })
-
-Review.create!({
-  user_id: 1,
-  product_id: 12,
-  rating: 1,
-  comment: 'I\'m leaving another review because this is such a shit bookshelf'
-  })
-
-
 puts "DONE!"
