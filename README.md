@@ -8,8 +8,8 @@ https://young-savannah-91290.herokuapp.com/
 
 1. Fork & Clone
 2. Run `bundle install` to install dependencies
-5. Run `bin/rake db:reset` to create, load and seed db
-9. Run `bin/rails s -b 0.0.0.0` to start the server if on vagrant, or else run `bin/rails s`
+3. Run `bin/rake db:reset` to create, load and seed db
+4. Run `bin/rails s -b 0.0.0.0` to start the server if on vagrant, or else run `bin/rails s`
 
 ## Dependencies
 
